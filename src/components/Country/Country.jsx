@@ -1,14 +1,26 @@
+import { useState } from "react";
 
 const Country = ({ country }) => {
     console.log(country)
     const { name, capital, flags, population, region } = country;
+    const [visited, setVisited] = useState(false);
+    const handleVisited = () => {
+        setVisited(!visited);
+    }
     return (
         <div className="country-container">
             <h1>{name.common}</h1>
             <h3>{capital}</h3>
-            <h3>{flags.png}</h3>
+            <img src={flags.png} alt="" />
             <h3>{population}</h3>
             <h3>{region}</h3>
+            <button onClick={handleVisited}>Visited</button>
+            {/* {
+                visited && <p style={{ color: 'green' }}>You have visited {name.common}</p>
+            } */}
+            {
+                visited ? <p style={{ color: 'green' }}>You have visited {name.common}</p> : <p style={{ color: 'red' }}>You have not visited {name.common}</p>
+            }
         </div>
     );
 };
