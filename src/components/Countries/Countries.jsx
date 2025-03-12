@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Country from "../Country/Country";
 import '../Country/Country.css';
+import { addtoLS } from "../../utilites/localStorage";
 
 const Countries = () => {
     const [countries, setCountries] = useState([]);
@@ -11,6 +12,7 @@ const Countries = () => {
         console.log(country)
         const newVisitedCountries = [...visitedCountreis, country]
         setVisitedCountreis(newVisitedCountries)
+        addtoLS(country.cca2)
     }
 
     useEffect(() => {
@@ -39,3 +41,4 @@ const Countries = () => {
 };
 
 export default Countries;
+
