@@ -28,7 +28,7 @@ const Countries = () => {
         if (countries.length) {
             const storedCountry = gerStoredCountry()
             console.log(storedCountry)
-            const storedCountryDetails = storedCountry.map(storedCountry => countries.find(country => country.cca2 === storedCountry))
+            const storedCountryDetails = storedCountry.map(storedCountryId => countries.find(country => country.cca2 === storedCountryId))
             console.log(storedCountryDetails)
             setVisitedCountreis(storedCountryDetails)
         }
