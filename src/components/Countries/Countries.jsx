@@ -25,10 +25,17 @@ const Countries = () => {
 
     // load from local storage
     useEffect(() => {
-        const storedCountry = gerStoredCountry()
-        console.log(storedCountry)
+        if (countries.length) {
+            const storedCountry = gerStoredCountry()
+            console.log(storedCountry)
+            const storedCountryDetails = storedCountry.map(storedCountry => countries.find(country => country.cca2 === storedCountry))
+            console.log(storedCountryDetails)
+            setVisitedCountreis(storedCountryDetails)
+        }
 
-    }, [])
+
+
+    }, [countries])
     return (
         <div>
             <h1>Countries:{countries.length}</h1>
