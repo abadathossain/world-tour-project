@@ -9,10 +9,11 @@ const Countries = () => {
     const [visitedCountreis, setVisitedCountreis] = useState([]);
 
     const handleVisitedCountries = (country) => {
-        console.log(country)
+        // console.log(country)
         const newVisitedCountries = [...visitedCountreis, country]
         setVisitedCountreis(newVisitedCountries)
         addtoLS(country.cca2)
+        console.log(country.cca2)
     }
 
     useEffect(() => {
