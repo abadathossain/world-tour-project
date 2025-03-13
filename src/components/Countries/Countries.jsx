@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Country from "../Country/Country";
 import '../Country/Country.css';
-import { addtoLS } from "../../utilites/localStorage";
+import { addToLs, gerStoredCountry } from "../../utilites/localStorage";
 
 const Countries = () => {
     const [countries, setCountries] = useState([]);
@@ -12,7 +12,7 @@ const Countries = () => {
         // console.log(country)
         const newVisitedCountries = [...visitedCountreis, country]
         setVisitedCountreis(newVisitedCountries)
-        addtoLS(country.cca2)
+        addToLs(country.cca2)
         console.log(country.cca2)
     }
 
@@ -20,6 +20,14 @@ const Countries = () => {
         fetch('https://restcountries.com/v3.1/all')
             .then(res => res.json())
             .then(data => setCountries(data))
+    }, [])
+
+
+    // load from local storage
+    useEffect(() => {
+        const storedCountry = gerStoredCountry()
+        console.log(storedCountry)
+
     }, [])
     return (
         <div>
