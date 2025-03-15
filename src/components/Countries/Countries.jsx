@@ -34,7 +34,7 @@ const Countries = () => {
         }
 
 
-
+        // dependency array because of infinite loop
     }, [countries])
     return (
         <div>
