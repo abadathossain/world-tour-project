@@ -15,7 +15,7 @@ const Countries = () => {
         addToLs(country.cca2)
         console.log(country.cca2)
     }
-
+    // data load from api
     useEffect(() => {
         fetch('https://restcountries.com/v3.1/all')
             .then(res => res.json())
