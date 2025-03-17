@@ -5,8 +5,12 @@ const Country = ({ country, handleVisitedCountries }) => {
     const { name, capital, flags, population, region } = country;
     const [visited, setVisited] = useState(false);
 
+
     const handleVisited = () => {
         setVisited(!visited);
+    }
+    const handleCountry = () => {
+        console.log('Click me')
     }
 
     return (
@@ -24,6 +28,7 @@ const Country = ({ country, handleVisitedCountries }) => {
                 visited ? <p style={{ color: 'green' }}>You have visited {name.common}</p> : <p style={{ color: 'red' }}>You have not visited {name.common}</p>
             }
             <button onClick={() => handleVisitedCountries(country)}>Mark Visited</button>
+            <button onClick={handleCountry}>Clik me</button>
         </div>
     );
 };
